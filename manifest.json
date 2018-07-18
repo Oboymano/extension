@@ -12,5 +12,10 @@
         "default_icon": "icon/icon.png",
         "default_popup": "popup.html"
     },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
     "permissions": ["activeTab"]
+    
 }

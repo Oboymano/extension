@@ -37,17 +37,30 @@ document.getElementById("next").addEventListener('click', () => {
 
 document.getElementById("check").addEventListener('click', () => {
 
-    function modifyDOM() {
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            var currTab = tabs[0];
-            if (currTab) { // Sanity check
-              console.log(tab)
-            }
-          });
+    fuck=(string)=>{
+        console.log(string)
     }
 
-    chrome.tabs.executeScript({
-        code: '(' + modifyDOM + ')();' //argument here is a string but function.toString() returns function's code
-    });
+    modifyDOM=(id)=>{
+        fuck('asd')
+        var playButton = document.querySelector('button.ytp-play-button.ytp-button')
+        if(playButton.length !== null) {
+            localStorage.setItem("youtubeid",id)
+            console.log(id)
+        }
+        console.log('fack')
+        
+    }
 
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        var activeTab = tabs[0];
+        chrome.tabs.executeScript({
+            code: '(' + modifyDOM + ')('+activeTab.id+');'
+        });
+    });
+    
+
+    
+
+    
 });
